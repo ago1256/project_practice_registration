@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Регистрация{% endblock %}</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #F5F5F5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .hero-form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 160px 24px;
+            gap: 32px;
+            width: 1200px;
+            height: 666px;
+            background: #F5F5F5;
+            flex: none;
+        }
+        
+        .text-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            gap: 8px;
+            width: 391px;
+            height: auto;
+            flex: none;
+        }
+        
+        .title {
+            width: 100%;
+            font-weight: 700;
+            font-size: 72px;
+            line-height: 120%;
+            text-align: center;
+            letter-spacing: -0.03em;
+            color: #1E1E1E;
+            margin: 0;
+        }
+        
+        .subtitle {
+            width: 100%;
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 120%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2C2C2C;
+            margin: 0;
+        }
+        
+        .form-contact {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 24px;
+            gap: 24px;
+            width: 320px;
+            min-width: 320px;
+            height: auto;
+            background: #FFFFFF;
+            border: 1px solid #D9D9D9;
+            border-radius: 8px;
+        }
+        
+        .input-field {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            width: 100%;
+        }
+        
+        .input-label {
+            width: 100%;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 140%;
+            color: #1E1E1E;
+        }
+        
+        .input-element {
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            width: 100%;
+            height: 40px;
+            background: #FFFFFF;
+            border: 1px solid #D9D9D9;
+            border-radius: 8px;
+            font-size: 16px;
+            line-height: 100%;
+        }
+        
+        .input-element::placeholder {
+            color: #B3B3B3;
+        }
+        
+        .submit-button {
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px;
+            gap: 8px;
+            width: 100%;
+            height: 40px;
+            background: #2C2C2C;
+            border: 1px solid #2C2C2C;
+            border-radius: 8px;
+            color: #F5F5F5;
+            font-size: 16px;
+            line-height: 100%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .submit-button:hover {
+            background: #1E1E1E;
+        }
+        
+        .error-message {
+            color: #FF5252;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-form">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
