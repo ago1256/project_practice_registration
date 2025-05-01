@@ -1,97 +1,200 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Регистрация{% endblock %}</title>
+    <title>{% block title %}AI-Recruiter{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-        
-        body {
+        /* Reset and base styles */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
             font-family: 'Inter', sans-serif;
-            background-color: #F5F5F5;
+            background: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        /* Main container */
+        .page-wrapper {
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-        }
-        
-        /* Header Styles */
-        .page-header {
-            box-sizing: border-box;
-            width: 100%;
-            height: 99px;
+            flex: 1;
             background: #FFFFFF;
-            border-bottom: 1px solid #D9D9D9;
-            display: flex;
-            justify-content: center;
         }
 
+        /* Header  */
+        .header {
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            background: #FFFFFF;
+            border-bottom: 1px solid #D9D9D9;
+        }
+
+        /* Контейнер внутри header ограничен по ширине */
         .header-container {
-            width: 1200px;
-            padding: 32px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 1200px;
+            padding: 32px;
         }
 
-        .header-links {
+        /* Остальные стили остаются без изменений */
+        .header-content {
             display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0px;
             gap: 24px;
+            flex: none;
+            order: 0;
+            flex-grow: 0;
         }
 
-        .header-buttons {
+        .logo {
+            width: 40px;
+            height: 35px;
+            flex: none;
+            order: 0;
+            flex-grow: 0;
+        }
+
+        .nav-list {
             display: flex;
-            gap: 16px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            align-items: flex-start;
+            align-content: flex-end;
+            padding: 0px;
+            gap: 8px;
+            width: 870px;
+            height: 32px;
+            flex: none;
+            order: 1;
+            flex-grow: 1;
         }
 
-        .header-link {
+        .nav-pill {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 8px;
+            gap: 8px;
+            height: 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-family: 'Inter';
             font-style: normal;
             font-weight: 400;
             font-size: 16px;
-            line-height: 140%;
+            line-height: 100%;
             color: #1E1E1E;
-            text-decoration: none;
-            transition: color 0.3s;
+            flex: none;
         }
 
-        .header-link:hover {
-            color: #2C2C2C;
+        .nav-pill.active {
+            background: #F5F5F5;
         }
 
-        .header-button {
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn {
             box-sizing: border-box;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 8px 16px;
-            border: 1px solid #D9D9D9;
+            padding: 8px;
+            width: 83px;
+            height: 32px;
             border-radius: 8px;
+            font-family: 'Inter';
+            font-style: normal;
             font-weight: 400;
             font-size: 16px;
-            line-height: 140%;
+            line-height: 16px;
+            cursor: pointer;
+        }
+
+        .btn-login {
+            background: #E3E3E3;
+            border: 1px solid #767676;
             color: #1E1E1E;
-            text-decoration: none;
-            transition: all 0.3s;
         }
 
-        .header-button.primary {
+        .btn-register {
             background: #2C2C2C;
-            color: #FFFFFF;
             border: 1px solid #2C2C2C;
+            color: #F5F5F5;
         }
 
-        .header-button:hover {
-            background: #F5F5F5;
+        /* Footer - теперь растягивается на всю ширину */
+        .footer {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            background: #FFFFFF;
+            border-top: 1px solid #D9D9D9;
         }
 
-        .header-button.primary:hover {
-            background: #1E1E1E;
+        /* Контейнер внутри footer ограничен по ширине */
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            width: 1200px;
+            padding: 64px;
         }
 
-        /* Main Content Styles */
+        .footer-left {
+            display: flex;
+            gap: 80px;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-heading {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 22px;
+            color: #1E1E1E;
+            margin-bottom: 8px;
+        }
+
+        .footer-link {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 22px;
+            color: #757575;
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            color: #1E1E1E;
+        }
+
+        /* Registration Form Styles */
         .hero-form {
             display: flex;
             flex-direction: column;
@@ -101,10 +204,9 @@
             gap: 32px;
             width: 100%;
             background: #F5F5F5;
-            flex: 1;
+            flex: none;
         }
 
-        /* Form Styles */
         .text-content {
             display: flex;
             flex-direction: column;
@@ -215,70 +317,51 @@
             font-size: 14px;
             margin-top: 4px;
         }
-
-        /* Footer Styles */
-        .page-footer {
-            box-sizing: border-box;
-            width: 100%;
-            height: 275px;
-            background: #FFFFFF;
-            border-top: 1px solid #D9D9D9;
-            display: flex;
-            justify-content: center;
-        }
-
-        .footer-container {
-            width: 1200px;
-            padding: 32px 32px 160px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 24px;
-        }
-
-        .footer-link {
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 140%;
-            color: #1E1E1E;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-link:hover {
-            color: #2C2C2C;
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
-    <header class="page-header">
+    <header class="header">
         <div class="header-container">
-            <nav class="header-links">
-                <a href="#" class="header-link">community</a>
-                <a href="#" class="header-link">pricing</a>
-                <a href="#" class="header-link">contact</a>
-            </nav>
-            <div class="header-buttons">
-                <a href="#" class="header-button">sign in</a>
-                <a href="#" class="header-button primary">register</a>
+            <div class="header-content">
+                <img src="{% static 'images/logo-without-background.jpg' %}" alt="Логотип" class="logo">
+                <nav class="nav-list">
+                    <a href="#" class="nav-pill">community</a>
+                    <a href="#" class="nav-pill">pricing</a>
+                    <a href="#" class="nav-pill">contact</a>
+                </nav>
+            </div>
+            <div class="auth-buttons">
+                <button class="btn btn-login">sign in</button>
+                <button class="btn btn-register">register</button>
             </div>
         </div>
     </header>
 
-    <main class="hero-form">
+    <main class="page-wrapper">
         {% block content %}{% endblock %}
     </main>
 
-    <footer class="page-footer">
+    <footer class="footer">
         <div class="footer-container">
-            <div class="footer-links">
-                <a href="#" class="footer-link">use cases</a>
-                <a href="#" class="footer-link">explore</a>
-                <a href="#" class="footer-link">resources</a>
+            <div class="footer-left">
+                <div class="footer-column">
+                    <h3 class="footer-heading">Use cases</h3>
+                    <a href="#" class="footer-link">HR Automation</a>
+                    <a href="#" class="footer-link">Candidate Screening</a>
+                    <a href="#" class="footer-link">Interview Scheduling</a>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-heading">Explore</h3>
+                    <a href="#" class="footer-link">Features</a>
+                    <a href="#" class="footer-link">Pricing</a>
+                    <a href="#" class="footer-link">Case Studies</a>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-heading">Resources</h3>
+                    <a href="#" class="footer-link">Blog</a>
+                    <a href="#" class="footer-link">Help Center</a>
+                    <a href="#" class="footer-link">API Docs</a>
+                </div>
             </div>
         </div>
     </footer>
